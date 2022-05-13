@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-employee.ccmif2wtoqtk.us-east-1.rds.amazonaws.com/employee
+    username: beaconfire
+    password: Java2022
+  jpa:
+    show-sql: true
+  application:
+    name: employe-service
+
+aws:
+  access-key: AKIARIZ7NF6MPZMPM6GH
+  secret-key: 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
+
+server:
+  port: ${PORT:0}
+
+eureka:
+  instance:
+    hostname: localhost
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8585/eureka
